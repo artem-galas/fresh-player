@@ -1,4 +1,3 @@
-import { ComponentChildren } from "preact";
 import CardHeader from "./CardHeader.tsx";
 import {
   NextIcon,
@@ -9,33 +8,27 @@ import {
   ShuffleIcon,
 } from "./icons/index.tsx";
 import SongList from "../islands/SongList.tsx";
+import CurrentSong from "./CurrentSong.tsx";
+import SongProgress from "../islands/SongProgress.tsx";
 
-type CardProps = {
-  children: ComponentChildren;
+type Song = {
+  name: string;
+  duration: number;
+  cover: string;
 };
 
-export function Card() {
+type CardProps = {
+  songs: Song[];
+};
+
+export function Card({songs}: CardProps) {
   return (
     <section class="px-8 pt-8 flex flex-col w-[470px] h-[840px] bg-white">
-      <CardHeader/>
+      <CardHeader />
       <div class="flex flex-col">
-        <div class="flex flex-col items-center">
-          <div class="w-[100%] flex flex-col gap-2 flex-1 text-center">
-            <p class="text-xl font-bold">Someone lived this</p>
-            <p>-Hans Zimer-</p>
-          </div>
-          <figure class="my-10 w-[235px] h-[235px] shadow-2xl">
-            <img class="w-[100%]" src="covers/br-2049.jpeg" />
-          </figure>
-        </div>
+        <CurrentSong/>
         <div class="mb-8">
-          <div class="w-full bg-gray-200 rounded-full h-1.5 dark:bg-gray-700">
-            <div class="bg-green-600 h-1.5 rounded-full" style="width: 45%" />
-          </div>
-          <div class="flex justify-between">
-            <div class="mt-1 text-sm">3:47</div>
-            <div class="mt-1 text-sm">5:35</div>
-          </div>
+          <SongProgress duration={5.34}/>
         </div>
         <div class="flex flex-row justify-between mx-5">
           <RepeatIcon />
@@ -45,7 +38,7 @@ export function Card() {
           <ShuffleIcon />
         </div>
         <div class="flex flex-col gap-8 mt-10">
-          <SongList/>
+          <SongList items={songs}/>
         </div>
       </div>
     </section>
