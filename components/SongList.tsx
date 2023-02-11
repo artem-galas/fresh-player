@@ -1,17 +1,16 @@
 import { useState } from "preact/hooks";
 import SongItem from "../components/SongItem.tsx";
-
-type Song = {
-  name: string;
-  duration: number;
-};
+import { Song } from "../Domain/Song.ts";
 
 type SongListProps = {
   items: Song[];
+  onSongClick: (song: Song) => void;
 };
 
-export default function SongList({ items }: SongListProps) {
-  const [active, setActive] = useState<number>(1);
+export default function SongList({ items, onSongClick }: SongListProps) {
+  function onClick(song: Song) {
+    onSongClick(song);
+  }
 
   return (
     <>
@@ -19,8 +18,8 @@ export default function SongList({ items }: SongListProps) {
         <SongItem
           key={index}
           item={item}
-          isActive={index === active}
-          setActive={() => setActive(index)}
+          isActive={false}
+          setActive={() => onClick(items[index])}
         />
       ))}
     </>
