@@ -1,4 +1,6 @@
-export default function PlayIcon() {
+import withClick from "./withClick.tsx";
+
+function PlayIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -16,3 +18,5 @@ export default function PlayIcon() {
     </svg>
   );
 }
+
+export default withClick(PlayIcon);

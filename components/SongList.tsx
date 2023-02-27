@@ -3,23 +3,24 @@ import SongItem from "../components/SongItem.tsx";
 import { Song } from "../Domain/Song.ts";
 
 type SongListProps = {
-  items: Song[];
-  onSongClick: (song: Song) => void;
+  items: Record<string, Song>;
+  selectedSong: string;
+  onSongClick: (key: string) => void;
 };
 
-export default function SongList({ items, onSongClick }: SongListProps) {
-  function onClick(song: Song) {
-    onSongClick(song);
+export default function SongList({ items, selectedSong, onSongClick }: SongListProps) {
+  function onClick(key: string) {
+    onSongClick(key);
   }
 
   return (
     <>
-      {items.map((item, index) => (
+      {Object.entries(items).map(([key, item]) => (
         <SongItem
-          key={index}
+          key={key}
           item={item}
-          isActive={false}
-          setActive={() => onClick(items[index])}
+          isActive={selectedSong === key}
+          setActive={() => onClick(key)}
         />
       ))}
     </>

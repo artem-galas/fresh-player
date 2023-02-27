@@ -1,4 +1,6 @@
-export default function PauseIcon() {
+import withClick from "./withClick.tsx";
+
+function PauseIcon() {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -16,3 +18,5 @@ export default function PauseIcon() {
     </svg>
   );
 }
+
+export default withClick(PauseIcon);

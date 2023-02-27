@@ -1,17 +1,20 @@
-[
-    {
-        "name": "Sapper's Tree",
-        "duration": 3.37,
-        "cover": "/covers/sappers-tree.jpeg"
-      },
-      {
-        "name": "Someone lived this",
-        "duration": 5.35,
-        "cover": "/covers/br-2049.jpeg"
-      },
-      {
-        "name": "Summer wind",
-        "duration": 2.54,
-        "cover": "/covers/summer-wind.png"
-      }
-]
+{
+  "1": {
+    "name": "Sapper's Tree",
+    "duration": "3.21",
+    "cover": "/covers/sappers-tree.jpeg",
+    "author":"Hans Zimmer"
+  },
+  "2": {
+    "name": "Someone lived this",
+    "duration": "5.35",
+    "cover": "/covers/br-2049.jpeg",
+    "author":"Hans Zimmer"
+  },
+  "3": {
+    "name": "Summer wind",
+    "duration": "2.54",
+    "cover": "/covers/summer-wind.png",
+    "author":"Frank Sinatra"
+  }
+}

@@ -1,6 +1,5 @@
 import { Head } from "$fresh/runtime.ts";
-import { Handlers, PageProps } from "$fresh/server.ts";
-import { Card } from "../components/Card.tsx";
+import Card from "../islands/Card.tsx";
 import data from "../static/data.json" assert { type: "json" };
 
 export default function Home() {

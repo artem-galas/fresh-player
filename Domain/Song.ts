@@ -1,5 +1,6 @@
 export type Song = {
     name: string;
-    duration: number;
+    duration: string;
     cover: string;
+    author: string;
 };

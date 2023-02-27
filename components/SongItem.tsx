@@ -1,9 +1,6 @@
 import { tw } from "twind";
-
-type Song = {
-  name: string;
-  duration: number;
-};
+import { Song } from "../Domain/Song.ts";
+import formatDuration from "../utils/formatDuration.ts";
 
 type SongItemProps = {
   item: Song;
@@ -12,10 +9,6 @@ type SongItemProps = {
 };
 
 export default function SongItem({ item, isActive, setActive }: SongItemProps) {
-  function formatDuration(duration: number) {
-    return duration.toString().replace(".", ":");
-  }
-
   return (
     <div
       onClick={setActive}
